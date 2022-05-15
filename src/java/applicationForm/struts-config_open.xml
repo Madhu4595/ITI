@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+		  
+
+    <form-beans>
+	<form-bean name="scvt_applications_EntryForm" type="Exams.scvt_applications_EntryForm"/>
+	
+	<form-bean name="sscdsata_application_wsForm" type="applicationForm.sscdsata_application_wsForm"/>
+<form-bean name="sscdsata_applicationForm" type="applicationForm.sscdsata_applicationForm"/>
+        <form-bean name="TradeData" type="admissions.report.TradeData"/>
+         <form-bean name="TradeData" type="admissions.report.TradeData"/>
+        <form-bean name="manageseats_interface_already_fill_fromadmForm" type="Master.Trade.manageseats_interface_already_fill_fromadmForm"/>
+       <form-bean name="delete_tableForm" type="Delete.delete_tableForm"/> 
+<form-bean name="Upload_Doc_sign_Form" type="ProfileEntry.Upload_Doc_sign_Form"/>
+	<form-bean name="Iti_Employee_Profile_Entry_Form" type="ProfileEntry.Iti_Employee_Profile_Entry_Form"/>
+	 <!-- Ramu code -->
+	 <form-bean name="ExamCentre_AllocationForm" type="Exams.ExamCentre_AllocationForm"/>
+	 <form-bean name="DgetTrade_AllocationForm" type="Master.Trade.DgetTrade_AllocationForm"/>
+	  <form-bean name="ExamCentre_EntryForm" type="Exams.ExamCentre_EntryForm"/>
+<form-bean name="Admission_Insertion_ResultForm" type="admissions.Admission_Insertion_ResultForm"/>
+ <form-bean name="Restore_Admission_SeatmatrixForm" type="Admission.Process.Restore_Admission_SeatmatrixForm"/>
+            <form-bean name="Restore_Admission_Form" type="Admission.Process.Restore_Admission_Form"/>
+	 <form-bean name="VoListForm" type="login.VoListForm"/>
+	  <form-bean name="Verify_Vofficer_Form" type="login.Verify_Vofficer_Form"/>
+	  <form-bean name="Register_Vo_Form" type="login.Register_Vo_Form"/>
+<form-bean name="VerificationForm" type="login.VerificationForm"/>
+
+	 <form-bean name="StatusMasterForm" type="login.StatusMasterForm"/>
+           <form-bean name="UpdateDataFormname" type="login.UpdateDataForm"/>
+        <form-bean name="Register_Verification_Form" type="login.Register_Verification_Form"/>
+           <!-- Ramu code end -->
+		     <!--    ==================================surendra starts======================== -->
+        <form-bean name="Edit_Attendance_Form" type="login.Edit_Attendance_Form"/>
+        
+        <form-bean name="Attendance_Form" type="login.Attendance_Form"/>
+        <form-bean name="attendance_report_form" type="login.attendance_report_form"/>
+        
+        <form-bean name="student_attendence_form" type="login.student_attendence_form"/>
+        
+   <!--    ==================================surendra ends======================== -->
+       
+	   <form-bean name="Iti_Admissions_Report_Form" type="Admission.Process.Iti_Admissions_Report_Form"/>
+		<form-bean name="apprintice_exam_app_details_interfaceForm" type="Exams.apprintice_exam_app_details_interfaceForm"/>
+
+		 <form-bean name="startAdmissionForm" type="admissions.startAdmissionForm"/>
+        <form-bean name="Select_tradeForm" type="admissions.Select_tradeForm"/>
+        <form-bean name="Admission_InterfaceForm" type="admissions.Admission_InterfaceForm"/>
+        
+		
+<form-bean name="Rdd_SubjectEntry_Form" type="Exams.Rdd_SubjectEntry_Form"/>
+<form-bean name="ChangeUserPwd_Form" type="Password.ChangeUserPwd_Form"/>
+
+<form-bean name="ProformaForm" type="Reports.Verification.ProformaForm"/>
+
+        <form-bean name="Change_GenderCaste_InterfaceForm" type="applicationForm.Change_GenderCaste_InterfaceForm"/>
+
+        
+<form-bean name="Subject_Reports_FormInsertForm" type="Reports.Verification.Subject_Reports_FormInsertForm"/>
+        <form-bean name="Subjects_Reports_Form" type="Reports.Verification.Subjects_Reports_Form"/>
+        
+
+<form-bean name="DistrictDataSaveForm" type="callleter.DistrictDataSaveForm"/>
+        <form-bean name="DistrictDataEditForm" type="callleter.DistrictDataEditForm"/>
+   
+        
+         <form-bean name="DeleteAdmission_interfaceForm" type="com.nic.Delete.DeleteAdmission_interfaceForm"/>
+        
+        <form-bean name="tradesel_unfreeze_form" type="applicationForm.tradesel_unfreeze_form"/>
+        <form-bean name="Examination_EntryForm" type="Exams.Examination_EntryForm"/>
+        <form-bean name="AdmissionsReportForm" type="admissions.report.AdmissionsReportForm"/>
+        <form-bean name="schedule_entry_interfaceForm" type="callleter.schedule_entry_interfaceForm"/>
+        
+        <!-- Jyothsna beans set -->
+<form-bean name="Register_New_User_UpdatedSaveForm" type="UserRegistration.Register_New_User_UpdatedSaveForm"/>
+         <form-bean name="Register_New_User_Form" type="UserRegistration.Register_New_User_Form"/>
+    
+
+         <form-bean name="Iti_params_interfaceform" type="com.caste_master.info.Iti_params_interfaceform"/>
+         <!-- Jyothsna beans set END-->
+		  <!--shobha-->
+                <form-bean name="sscdsata_application_wsForm_new" type="applicationForm.sscdsata_application_wsForm_new"/>
+
+				<form-bean name="open_sscdsata_application_wsForm_new" type="applicationForm.open_sscdsata_application_wsForm_new"/>
+<!--shobha-->
+        
+        <form-bean name="UnfreezeForm" type="com.nic.unfreeze.UnfreezeForm"/>
+        <form-bean name="Login_history_Form" type="History.Login_history_Form"/>
+        <form-bean name="exam_app_details_interface_rddForm" type="Exams.exam_app_details_interface_rddForm"/>
+        <form-bean name="exam_app_details_EDITinterface_rddForm" type="Exams.exam_app_details_EDITinterface_rddForm"/>
+        <form-bean name="exam_application_new_rddForm" type="Exams.exam_application_new_rddForm"/>
+       <!--============================harish beans Start=============================-->
+        <form-bean name="ListHallTicketForm" type="hallticketlist.ListHallTicketForm"/>
+
+        <form-bean name="RolesEditForm" type="com.nic.roles.RolesEditForm"/>
+        <form-bean name="RolesInsertionForm" type="com.nic.roles.RolesInsertionForm"/>
+        <form-bean name="RolesEntryForm" type="com.nic.roles.RolesEntryForm"/>
+        
+         <form-bean name="AddSubForm" type="nic.confirmation.AddSubForm"/>
+        <form-bean name="NewSubActionForm" type="nic.confirmation.NewSubActionForm"/>
+        <form-bean name="TradeUpdateForm" type="nic.confirmation.TradeUpdateForm"/>
+        <form-bean name="AddingForm" type="nic.confirmation.AddingForm"/>
+        <form-bean name="SubjectForm" type="nic.confirmation.SubjectForm"/>
+        <form-bean name="ConfirmationFormBean" type="nic.confirmation.ConfirmationFormBean"/>
+         <form-bean name="Exam_HallTikcetForm" type="com.nic.exht.Exam_HallTikcetForm"/>
+        <!--============================Harish beans Start=============================-->
+        <form-bean name="Tradesel_entry_Form" type="Master.Trade.Tradesel_entry_Form"/>
+
+        
+        <form-bean name="exam_app_details_interfaceForm" type="Exams.exam_app_details_interfaceForm"/>
+        <form-bean name="exam_application_newForm" type="Exams.exam_application_newForm"/>
+        <form-bean name="Login_historyForm" type="login.Login_historyForm"/>
+        <form-bean name="verify_report_interfaceForm" type="Reports.Verification.verify_report_interfaceForm"/>
+        <form-bean name="exam_applicationForm" type="info.examapp.exam_applicationForm"/>
+        <form-bean name="Exam_app_interfaceForm" type="info.examapp.Exam_app_interfaceForm"/>
+        <form-bean name="Merit_Interfaceform" type="MeritRankings.Merit_Interfaceform"/>
+        <form-bean name="ManageSeats_InterfaceForm" type="dashboard.ManageSeats_InterfaceForm"/>
+        <form-bean name="ExistingCandidateForm" type="applicationForm.ExistingCandidateForm"/>
+        <form-bean name="Application_Step1_form" type="applicationForm.Application_Step1_form"/>
+
+		<form-bean name="open_ExistingCandidateForm" type="applicationForm.open_ExistingCandidateForm"/>
+        <form-bean name="open_Application_Step1_form" type="applicationForm.open_Application_Step1_form"/>
+
+        <form-bean name="NewStrutsActionForm" type="Database.NewStrutsActionForm"/>
+        <form-bean name="NewTradeFormBean" type="gov.ntaa.info.NewTradeFormBean"/>    
+        <form-bean name="ChangePassword_InterfaceForm" type="Password.ChangePassword_InterfaceForm"/>
+        <form-bean name="convinerTrade_interfaceForm" type="Master.Trade.convinerTrade_interfaceForm"/>
+        <form-bean name="addnew_trade_interfaceForm" type="Master.Trade.addnew_trade_interfaceForm"/>
+        <form-bean name="EditTrade_InterfaceForm" type="Master.Trade.EditTrade_InterfaceForm"/>
+        <form-bean name="LoginForm" type="login.LoginForm"/>
+        <form-bean name="UpdateForm" type="applicationForm.UpdateForm"/>
+        <form-bean name="Application_InterfaceForm" type="applicationForm.Application_InterfaceForm"/>
+        <form-bean name="PrintApplicationForm" type="applicationForm.PrintApplicationForm"/>
+        
+        <form-bean name="Delete_admission_details_studentForm" type="Delete.Delete_admission_details_studentForm"/>
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+       
+    </global-forwards>
+
+    <action-mappings>
+
+
+ <action input="/Admission_Insertion_Result.jsp" name="Admission_Insertion_ResultForm" path="/adminsertion" scope="request" type="admissions.Admission_Insertion_ResultAction">
+        <forward name="success" path="/success_genric.jsp"/>
+        </action>
+
+   
+<action input="/delete_table.jsp" name="delete_tableForm" path="/delete_table" scope="request" type="Delete.delete_tableAction">
+              <forward name="success" path="/subsuccess.jsp"/>
+          </action>
+
+	 <action path="/exam_app_verify" type="Exams.exam_app_verifyAction">
+             <forward name="success" path="/exam_app_verification_interface.jsp"/>
+        </action>
+	  <!--    ==================================surendra starts======================== -->
+
+<action input="/Iti_employee_profile_entry.jsp" name="Iti_Employee_Profile_Entry_Form" path="/employee_profile" scope="session" type="ProfileEntry.Iti_Employee_Profile_Entry_Action">
+<forward name="success"  path="/Iti_employee_profile_report.jsp"/>
+<forward name="failure"  path="/success_genric.jsp"/>
+</action>
+
+<action input="/Upload_emp_doc.jsp" name="Upload_Doc_sign_Form" path="/upload_docs" scope="session" type="ProfileEntry.Upload_Doc_sign">
+<forward name="success"  path="/Iti_employee_profile_report.jsp"/>
+<forward name="failure"  path="/success_genric.jsp"/>
+</action>
+
+	  <action input="/Iti_adm_interface.jsp" name="Iti_Admissions_Report_Form" path="/iti_report" scope="session" type="Admission.Process.Iti_Admissions_Report_Action">   
+       <forward name="success"  path="/Iti_report_success.jsp"/>
+</action>
+        <action input="/Student_Attendance_Interface.jsp" name="student_attendence_form" path="/student_attendence" scope="session" type="login.student_attendence_action">
+            <forward name="success" path="/Attendence_report.jsp"/>
+            </action>
+            <action input="/Attendence_report.jsp" name="attendance_report_form" path="/attendance_report" scope="session" type="login.attendance_report_action">
+        <forward name="success" path="/attendance_percentage_report.jsp"/>
+            </action>
+            <action input="/student_attendence.jsp" name="Attendance_Form" path="/attendance" scope="session" type="login.Attendance_Action">
+        <forward name="success" path="/Student_Attendance_Interface.jsp"/>
+        
+        </action>
+        <action input="/Attendance_Report_Edit.jsp" name="Edit_Attendance_Form" path="/edit_attendance" scope="session" type="login.Edit_Attendance_Action">
+            <forward name="success" path="/Update_Attendance.jsp"/>
+        </action>
+        
+        <!--    ==================================surendra ends======================== -->
+
+	 <!-- Ramu code -->
+	<action input="/DgetTrade_Allocation.jsp" name="DgetTrade_AllocationForm" path="/dgetcodeallocation" scope="request" type="Master.Trade.DgetTrade_AllocationAction">
+ <forward name="success" path="/DgetTrade_AllocationSuccess.jsp"/>
+      </action>
+
+	<action input="/VoList.jsp" name="VoListForm" path="/volist" scope="session" type="login.VoListAction">
+    <forward name="success" path="/Vo_AssignColleges_List.jsp" />
+ </action>
+
+         <action input="/Verify_Vofficer.jsp" name="Verify_Vofficer_Form" path="/vologin" scope="request" type="login.Verify_Vofficer_Action">
+        <forward name="success" path="/Admission_Interface.jsp"/>
+         <forward name="failure" path="/Verify_Vofficer.jsp"/>
+        </action>
+
+	 <action  path="/voAction" scope="request" type="login.VerificationAction">
+            
+            <forward name="success" path="/VerificationEditSuccess.jsp"/>
+        </action>
+
+
+<action input="/Register_Vo.jsp" name="Register_Vo_Form" path="/regvo" scope="session" type="login.Register_Vo_Action">
+    <forward name="success" path="/Verification.jsp"/>     
+  </action>
+
+        <action input="/Register_Verification.jsp" name="Register_Verification_Form" path="/regverification" scope="request" type="login.Register_Verification_Action">
+             <forward name="success" path="/Creationsuccess.jsp"/>
+            </action>
+            <action input="/iti_update.jsp" path="/updateData" type="login.UpdateDataAction" validate="true" scope="request"     name="UpdateDataFormname">
+                <forward name="success" path="/Iti_Report.jsp"/>
+           </action>
+		
+		<action input="/StatusMaster.jsp" name="StatusMasterForm" path="/status" scope="session" type="login.StatusMasterAction">
+		 <forward name="success" path="/success_genric.jsp"/>
+            </action>
+
+			 <action input="/Restore_Admission.jsp" name="Restore_Admission_Form" path="/restoreadmission" scope="request" type="Admission.Process.Restore_Admission_Action">
+          <forward name="success" path="/success_genric.jsp"/>
+          <forward name="seatmatrix" path="/Restore_Admission_Seatmatrix.jsp"/>
+          </action>
+          
+          <action input="/Restore_Admission_Seatmatrix.jsp" name="Restore_Admission_SeatmatrixForm" path="/restoreseatmatrix" scope="request" type="Admission.Process.Restore_Admission_SeatmatrixAction">
+          <forward name="success" path="/success_genric.jsp"/>
+          </action> 
+		  <action input="/ExamCentre_Entry.jsp" name="ExamCentre_EntryForm" path="/examcenterentry" scope="session" type="Exams.ExamCentre_EntryAction">
+         <forward name="success" path="/success_genric.jsp"/>
+         </action>
+
+           <!-- Ramu code end --> 
+		   <!--shobha-->
+         
+          <action input="/SSCdataShow_ws_new.jsp" name="sscdsata_application_wsForm_new" path="/sscdsata_application_ws_new" scope="session" type="applicationForm.sscdsata_application_wsAction_new">
+             <forward name="success" path="/AppRegSuccessThroughSccData_new.jsp"/>
+         </action>
+<!-- Open application-->
+		 
+          <action input="/open_SSCdataShow_ws_new.jsp" name="open_sscdsata_application_wsForm_new" path="/sscdsata_application_ws_new" scope="session" type="applicationForm.open_sscdsata_application_wsAction_new">
+             <forward name="success" path="/open_AppRegSuccessThroughSccData_new.jsp"/>
+         </action>
+		 <!-- Open application-->
+
+         <!--shobha-->
+        
+<action input="/scvt_applications_Entry.jsp" name="scvt_applications_EntryForm" path="/scvt_applications_add" scope="session" type="Exams.scvt_applications_EntryAction">
+             <forward name="success" path="/success_genric.jsp"/>
+         </action>
+
+		   
+       <action input="/ExamCentre_Allocation.jsp" name="ExamCentre_AllocationForm" path="/ExamcentreAllocation" scope="session" type="Exams.ExamCentre_AllocationAction">
+            <forward name="success" path="/ExamCentre_AllocationSuccess.jsp"/>
+         </action>
+<action input="/Admission_Interface.jsp" name="Admission_InterfaceForm" path="/verifyrank" scope="request" type="admissions.Admission_InterfaceAction">
+            <forward name="selecttrade" path="/select_trade.jsp"/>
+            <forward name="detailsnotfound" path="/Admission_Interface.jsp"/>
+         </action>
+         <action input="/select_trade.jsp" name="Select_tradeForm" path="/trade_selected" scope="request" type="admissions.Select_tradeAction">
+<forward name="success" path="/admissionmemo.jsp"/>
+             <forward name="fail" path="/success_genric.jsp"/>
+          </action>
+		  
+		  <action input="/startAdmission.jsp" name="startAdmissionForm" path="/check_schedule_entry" scope="request" type="admissions.startAdmissionAction">
+              <forward name="success" path="/Verify_Vofficer.jsp"/>
+              <forward name="failure" path="/Admission_Interface.jsp"/>
+          </action>
+<action input="/Rdd_SubjectsEntry_Interface.jsp" name="Rdd_SubjectEntry_Form" path="/RddSubjectEntry" scope="request" type="Exams.Rdd_SubjectEntry_Action">
+<forward name="success"  path="/Rdd_SubjectsEntry_Interface.jsp"/>
+        </action>
+<action input="/ChangeUserPassword.jsp" name="ChangeUserPwd_Form" path="/change_password" scope="session" type="Password.ChangeUserPwd_Action">
+            <forward name="success"  path="/ChangedUserPasswordConfirm.jsp"/>
+        </action>
+ <action input="/Proforma_Interface.jsp" name="ProformaForm" path="/Genproforma" scope="request" type="Reports.Verification.ProformaAction">
+        <forward name="success" path="/FinalProforma.jsp"/>    
+        </action>
+<action input="/Change_GenderCaste_Interface.jsp" name="Change_GenderCaste_InterfaceForm" path="/getData" scope="request" type="applicationForm.Change_GenderCaste_InterfaceAction">
+           <forward name="success" path="/Change_GenderCaste_Interface.jsp"/> 
+         </action>
+	 <!-- Kranthi code -->
+            
+                 <action input="/Show_Subjects_Reports.jsp" name="Subjects_Reports_Form" path="/subjectdata" scope="request" type="Reports.Verification.Subject_Reports_Action">
+                 <forward name="success" path="/Show_Subjects_ReportEdit.jsp"/>
+            </action>
+
+         <action input="/Show_Subjects_ReportEdit.jsp" name="Subject_Reports_FormInsertForm" path="/subject" scope="request" type="Reports.Verification.Subject_Reports_ActionInsert">
+                 <forward name="success" path="/Show_Subjects_Reports.jsp"/>
+            </action>
+         <!-- Jyothsna Action starts -->
+<action input="/Register_new_user.jsp" name="Register_New_User_Form" path="/register_new" scope="request" type="UserRegistration.Register_New_User_Action">
+            <forward name="success" path="/register_new_user_success.jsp"/>   
+       </action>
+       <action  path="/report" scope="request" type="UserRegistration.Register_New_User_UpdateAction">
+             <forward name="success" path="/Register_New_User_Edit.jsp"/>
+       </action>  
+                
+       <action input="/Register_New_User_Edit.jsp" name="Register_New_User_UpdatedSaveForm" path="/updated_save" scope="request" type="UserRegistration.Register_New_User_UpdateSaveActions"> 
+               <forward name="success" path="/Register_New_User_Edit_Success.jsp"/>
+       </action>  
+        
+
+
+<action input="/district_schedule.jsp" name="DistrictDataEditForm" path="/districtdataedit" scope="request" type="callleter.DistrictDataEditAction">
+              <forward name="success" path="/DistrictdataEditing.jsp"/>       
+        </action>
+        <action input="/DistrictdataEditing.jsp" name="DistrictDataSaveForm" path="/updated_save" scope="request" type="callleter.DistrictDataSaveAction">
+              <forward name="success" path="/district_schedule.jsp"/>
+        </action>  
+        
+<action input="/" name="tradesel_unfreeze_form" path="/trade_sel_unfreeze" scope="session" type="applicationForm.tradesel_unfreeze_action">
+            <forward name="success" path="/trade_sel_unfreeze.jsp"/>    
+        </action>
+        
+<action input="/Examination_Entry.jsp" name="Examination_EntryForm" path="/exams_internals" scope="request" type="Exams.Examination_EntryAction">
+            <forward name="success" path="/entry_success.jsp"/>
+        </action>
+        <action input="/iti_params_interface.jsp" name="Iti_params_interfaceform" path="/iti_params" scope="request" type="com.caste_master.info.Iti_params_interfaceaction">
+            <forward name="success" path="/iti_params_insertion_success.jsp"/>
+        </action>
+        <action input="/itiparamsedit.jsp" name="Iti_params_interfaceform" path="/editdetails" scope="request" type="com.caste_master.info.Edit_iti_paramsAction">
+            <forward name="success" path="/iti_params_report.jsp"/>
+        </action>
+
+        <!-- Jyothsna Action set END-->
+
+		<action input="/ITIAdmissionsReportEntry.jsp" name="AdmissionsReportForm" path="/admissionsEntry" scope="request" type="admissions.report.AdmissionsReportAction">
+            <forward name="success" path="/ITIAdmissionsReport.jsp"/>
+        </action>
+        
+        <action input="/Login_history.jsp" name="Login_history_Form" path="/history" scope="request" type="History.Login_history_Action">
+          <forward name="success" path="/login_history_success.jsp"/>    
+        </action>
+       
+       <action input="/Tradesel_entry.jsp" name="Tradesel_entry_Form" path="/tradesel" scope="session" type="Master.Trade.Tradesel_entry_Action">
+           <forward name="success" path="/success_genric.jsp" />
+        </action>
+        
+        <!--============================ Harish beans Start=============================-->
+        <action input="/Unfreeze.jsp" name="UnfreezeForm" path="/unfreeze" scope="request" type="com.nic.unfreeze.UnfreezeFormAction">
+            
+            <forward name="success" path="/unfreezesuccess.jsp"/>
+        </action>
+        
+           <action input="/CollegeList.jsp" path="/collegeList"  type="hallticketlist.CollegeListAction" scope="request" name="ListHallTicketForm">
+        <forward name="success" path="/CollegeList.jsp"/>
+        </action>
+        <action input="/CollegeList.jsp" name="ListHallTicketForm" path="/dist_hall" scope="request" type="hallticketlist.DistHallTicketAction">
+            <forward name="success" path="/results.jsp"/>
+            <forward name="centersnotallocated" path="/success_genric.jsp"/>
+            <forward name="rdd_freeze_fail" path="/CollegeList.jsp"/>
+        </action>
+        
+        
+         <action  name="RolesEntryForm" path="/RoleData" scope="request" type="com.nic.roles.RolesEntryFormAcion">
+        <forward name="successroles" path="/RolesEntry.jsp"/>
+        </action>
+        <action input="/RolesEntry.jsp" name="RolesInsertionForm" path="/RolesIn" scope="request" type="com.nic.roles.RolesInsertionFormAction">
+        <forward name="success" path="/RolesInsertion.jsp"/>
+        </action>
+        <action input="/RolesEdit.jsp" name="RolesEditForm" path="/rolesEdit" scope="request" type="com.nic.roles.RolesEditFormAction">
+            <forward name="success" path="/RolesEditSuccess.jsp"/>
+        </action>
+   
+        
+          
+        <action input="/exam_hallticket.jsp" name="Exam_HallTikcetForm" path="/exam_ht" scope="request" type="com.nic.exht.Exam_HallTicketAction">
+        <forward name="success" path="/hallticketgen.jsp"/>
+        <forward name="failure" path="/hallticketgen_failure.jsp"/>
+        </action>
+        
+        <action  name="ConfirmationFormBean" path="/register" scope="request" type="nic.confirmation.ConfirmationAction" validate="true">
+        <forward name="success" path="/verify.jsp"/>
+        </action>
+        
+        <action input="/verify.jsp" name="ConfirmationFormBean" path="/popaction" scope="request" type="nic.confirmation.ApplicationAction">
+        <forward name="success" path="/popup.jsp"/>
+        </action>
+        
+        <action input="/popup.jsp" name="ConfirmationFormBean" path="/verification_cat" scope="request" type="nic.confirmation.VerifyAction">
+            <forward name="success" path="/verifysuccess.jsp"/>
+            <forward name="notVerified" path="/reject.jsp"/>
+        </action>
+        
+        <action name="ConfirmationFormBean" path="/reject" scope="request" type="nic.confirmation.RejectAction" input="/popup.jsp">
+           <forward name="success" path="/reject.jsp"/>
+        </action>
+        
+        <action input="/popup.jsp" name="ConfirmationFormBean" path="/editaction" scope="request" type="nic.confirmation.EditAction">
+         <forward name="edit" path="/editForm.jsp"/>
+        </action>
+        
+        <action input="/editForm.jsp" path="/update" type="nic.confirmation.UpdateAction" validate="true" scope="request" name="ConfirmationFormBean">
+        </action>
+         
+        <action path="/addsub" type="nic.confirmation.AddSubAction"  name="AddSubForm" >
+            <forward name="success" path="/DisplayReport.jsp"/>
+        </action>
+        
+        <action  path="/edit" type="nic.confirmation.EditSubAction" name="AddingForm"  scope="request">
+         <forward name="edit" path="/editSub.jsp"/>
+         <forward name="failure" path="/authentication.jsp"/>
+         </action>
+         
+        <action input="/editSub.jsp" name="TradeUpdateForm" path="/updateSub" scope="request" type="nic.confirmation.TradeUpdateAction">
+        <forward name="update" path="/tradeNameUpdate.jsp"/>
+        </action>
+         
+        <action input="/NewSub.jsp" name="SubjectForm" path="/subaction" scope="request" type="nic.confirmation.SubjectAction" validate="true">
+        <forward name="success" path="/subsuccess.jsp"/>
+        <forward name="update" path="/subsupdate.jsp"/>
+        </action>
+       
+        <action input="/DisplayReport.jsp" name="NewSubActionForm" path="/NewSub" scope="request" type="nic.confirmation.NewSubAction" validate="true">
+        <forward name="success" path="/NewSub.jsp"/>
+        </action>
+         
+       
+        
+        
+        
+        <!--============================ Harish beans Start=============================-->
+        <action path="/retrieve" type="org.apache.struts.actions.ForwardAction" parameter="/getTradeList.jsp"/>        
+        
+        <action path="/add_new_trade" type="gov.ntaa.info.NewTradeAction" name="NewTradeFormBean" validate="true" input="/AddNewTrade.jsp" scope="request">
+            <forward name="success" path="/generate.do"/>
+            <forward name="exists" path="/exists.jsp"/>
+        </action>
+        
+        <action  name="NewTradeFormBean" path="/generate" scope="request" type="gov.ntaa.info.GenerateAction" validate="true" >
+            <forward name="abc" path="/insertTrade.jsp"/>
+        </action>
+       
+         <action input="/Application_Interface.jsp" name="Application_InterfaceForm" path="/application" scope="request" type="applicationForm.Application_InterfaceAction">
+            <forward name="success" path="/success.jsp"/>
+            <forward name="failure" path="/data_exists.jsp"/>
+            <forward name="update" path="/update.jsp"/>
+        </action>
+        
+        <action input="/Update_interface.jsp" name="UpdateForm" path="/update" scope="request" type="applicationForm.UpdateAction">
+            <forward name="success" path="/Application_Interface.jsp" />
+        </action>
+        
+        <action input="/PrintApplication.jsp" name="PrintApplicationForm" path="/print" scope="request" type="applicationForm.PrintApplicationAction">
+            <forward name="success" path="/print.jsp" />
+        </action>   
+        
+        <action input="/login.jsp" name="LoginForm" path="/login" scope="request" type="login.LoginAction">
+            <forward name="success" path="/loginsuccess.jsp"/>
+            <forward name="failure" path="/login.jsp?valid=1"/>
+			 <forward name="status" path="/login.jsp?valid=2"/>
+            <forward name="derror" path="/databaseError.jsp"/>
+        </action>
+        
+        <action path="/trade" type="Master.Trade.TradeAction">
+            <forward name="success" path="/AddTrade_interface.jsp"/>
+            <forward name="convinertrade" path="/convinerTrade_interface.jsp"/>
+            <forward name="failure" path="/loginerror.jsp"/>
+            <forward name="derror" path="/databaseError.jsp"/>
+        </action>
+        
+        <action path="/editTrade" type="Master.Trade.EditTrade">
+            <forward name="success" path="/editTrade_interface.jsp"/>
+            <forward name="failure" path="/loginerror.jsp"/>
+            <forward name="derror" path="/databaseError.jsp"/>
+        </action>
+        
+        <action input="/editTrade_interface.jsp" name="EditTrade_InterfaceForm" path="/edittrade_succ" scope="request" type="Master.Trade.EditTrade_InterfaceAction">
+            <forward name="success" path="/editTrade_success.jsp"/>
+            <forward name="failure" path="/loginerror.jsp"/>
+            <forward name="derror" path="/databaseError.jsp"/>
+        </action>
+        
+        <action path="/addnew_trade_inter" type="Master.Trade.addnew_tradeAction">
+            <forward name="success" path="/addnew_trade_interface.jsp"/>
+            <forward name="failure" path="/loginerror.jsp"/>
+            <forward name="derror" path="/databaseError.jsp"/>
+        </action>
+        
+        <action input="/addnew_trade_interface.jsp" name="addnew_trade_interfaceForm" path="/addnew_trade" scope="request" type="Master.Trade.addnew_trade_interfaceAction">
+            <forward name="success" path="/trade.do"/>
+            <forward name="failure" path="/loginerror.jsp"/>
+            <forward name="derror" path="/databaseError.jsp"/>
+        </action>
+        
+        <action path="/freeze_alltrades" type="Master.Trade.freeze_alltradesAction">
+            <forward name="success" path="/trade.do"/>
+            <forward name="failure" path="/loginerror.jsp"/>
+            <forward name="derror" path="/databaseError.jsp"/>
+        </action>
+        
+        <action input="/convinerTrade_interface.jsp" name="convinerTrade_interfaceForm" path="/showalltrades_conviner" scope="request" type="Master.Trade.ConvinerTrade_interfaceAction">
+            <forward name="success" path="/showconvinerTrades_rep.jsp"/>
+            <forward name="failure" path="/loginerror.jsp"/>
+            <forward name="derror" path="/databaseError.jsp"/>
+        </action>
+        
+        <action path="/approve_alltrades" type="Master.Trade.Approve_alltradesAction">
+            <forward name="success" path="/approveiti_tradesSuccess.jsp"/>
+            <forward name="failure" path="/loginerror.jsp"/>
+            <forward name="derror" path="/databaseError.jsp"/>
+        </action>
+        
+        <action input="/ChangePassword_Interface.jsp" name="ChangePassword_InterfaceForm" path="/password" scope="request" type="Password.ChangePassword_InterfaceAction">
+            <forward name="success" path="/Change_Password_success.jsp"/>
+            <forward name="failure" path="/loginerror.jsp"/>
+            <forward name="derror" path="/databaseError.jsp"/>
+            <forward name="pwderror" path="/oldpassworderror.jsp"/>
+        </action>
+        
+        <action path="/dashboard" type="dashboard.DashboardAction">
+            <forward name="success" path="/dashboard_page.jsp"/>
+            <forward name="itisuccess" path="/dashboard_page_iti.jsp"/>
+            <forward name="distsuccess" path="/dashboard_page_dist.jsp"/>
+        </action>
+        
+        <action path="/show_dashboarditis" type="dashboard.Show_dashboarditisAction">
+            <forward name="success" path="/dashboard_showitis.jsp"/>
+        </action>
+        
+        <action path="/manage_seats" type="dashboard.manage_seatsAction">
+            <forward name="success" path="/manageseats_interface.jsp"/>
+        </action>
+        
+      
+        
+        <action input="/manageseats_interface.jsp" name="ManageSeats_InterfaceForm" path="/update_seats" scope="request" type="dashboard.ManageSeats_InterfaceAction">
+            <forward name="success" path="/trade.do"/>
+            <forward name="lengthfail" path="/length_fail.jsp"/>
+        </action>
+        
+        <action path="/show_applicants" type="dashboard.show_applicantsAction">
+            <forward name="success" path="/show_applicants.jsp"/>
+            <forward name="lengthfail" path="/length_fail.jsp"/>
+        </action>
+        
+        <action input="/Application_Interface1.jsp" name="Application_Step1_form" path="/application-step1" scope="request" type="applicationForm.Applicatiton_Step1Action">
+            <forward name="exists" path="/ExistingCandidate.jsp"/>
+            <forward name="new_applicant" path="/Application_Interface.jsp"/>
+        </action>
+        
+         <action input="/ExistingCandidate.jsp" name="ExistingCandidateForm" path="/existing" scope="request" type="applicationForm.ExistingCandidateAction">
+            <forward name="success" path="/success_genric.jsp"/>
+        </action>
+		<!--Open Application Pages -->
+
+		
+        <action input="/open_Application_Interface1.jsp" name="open_Application_Step1_form" path="/application-step1" scope="request" type="applicationForm.open_Applicatiton_Step1Action">
+            <forward name="exists" path="/open_ExistingCandidate.jsp"/>
+            <forward name="new_applicant" path="/open_Application_Interface.jsp"/>
+        </action>
+        
+         <action input="/open_ExistingCandidate.jsp" name="open_ExistingCandidateForm" path="/existing" scope="request" type="applicationForm.open_ExistingCandidateAction">
+            <forward name="success" path="/open_success_genric.jsp"/>
+        </action>
+		<!--Open Application Pages -->
+        
+        <action input="/merit_Interface.jsp" name="Merit_Interfaceform" path="/sortRanking" scope="request" type="MeritRankings.Merit_InterfaceAction">        
+            <forward name="success" path="/rankSuccesful.jsp"/>
+            <forward name="failure" path="/rankSuccesful.jsp"/>
+            <forward name="category" path="/meritReportCategory.jsp"/>
+        </action>
+        
+
+        <action path="/verification" type="Reports.Verification.verificationAction">
+            <forward name="success" path="/verify_report_interface.jsp"/>
+        </action>
+        
+        <action input="/verify_report_interface.jsp" name="verify_report_interfaceForm" path="/verify" scope="request" type="Reports.Verification.verify_report_interfaceAction">
+            <forward name="convinertrade" path="/show_applicants_report.jsp"/>
+            <forward name="notfound" path="/data_notfound.jsp"/>
+        </action>
+        <action path="/freeze_conform" type="Reports.Verification.freeze_conformAction">
+             <forward name="success" path="/freeze_success.jsp"/>
+            <forward name="notfound" path="/data_notfound.jsp"/>
+        </action>
+        <action input="/login_history.jsp" name="Login_historyForm" path="/login_history" scope="request" type="login.login_historyAction">
+            <forward name="success" path="/login_history_rep.jsp"/>
+	    </action>	
+		
+	<action input="/exam_application_new.jsp" name="exam_application_newForm" path="/exam_app" scope="request" type="Exams.exam_application_newAction">
+            <forward name="edit_application" path="/exam_app_details_EDITinterface.jsp"/>
+            <forward name="adm_num_wrong" path="/exam_application_new.jsp"/>
+             <forward name="success" path="/exam_app_details_interface.jsp"/>
+             <forward name="appp" path="/apprintice_exam_app_details_interface.jsp"/>
+             <forward name="fail" path="/fail_edit.jsp"/>
+             <forward name="AlreadyExists" path="/success_genric.jsp"/>
+        </action>
+
+
+        <action input="/exam_application_new_rdd.jsp" name="exam_application_new_rddForm" path="/exam_app_rdd" scope="request" type="Exams.exam_application_new_rddAction">
+            <forward name="edit_application" path="/exam_app_details_EDITinterface_rdd.jsp"/>
+            <forward name="adm_num_wrong" path="/exam_application_new_rdd.jsp"/>
+             <forward name="success" path="/exam_app_details_interface_rdd.jsp"/>
+             <forward name="fail" path="/fail_edit.jsp"/>
+        </action>
+        
+        <action input="/delete_admission_details_student.jsp" name="Delete_admission_details_studentForm" path="/details" scope="session" type="Delete.Delete_admission_details_studentFormAction">
+           <forward name="success" path="/delete_admission_success.jsp"/>
+           <forward name="adm_num_wrong" path="/delete_admission_details_student.jsp"/>
+        </action>
+        
+        
+        <action path="/exam_application_new.do" type="info.examapp.exam_application_newAction"/>
+        <!--
+        <action input="/Exam_app.jsp" name="Exam_app_interfaceForm" path="/examapp" scope="request" type="info.examapp.Exam_app_interfaceAction" validate="true">
+             <forward name="fail" path="/exam_app_marks_interface.jsp"/>
+             <forward name="success" path="/exam_app_details_interface.jsp"/>
+        </action>
+        -->
+<action input="/errorpage.jsp" name="exam_app_details_interfaceForm" path="/exam_app_details" scope="request" type="Exams.exam_app_details_interfaceAction">
+            <forward name="success" path="/success_genric.jsp"/>
+            <forward name="Data_error" path="/exam_app_details_interface.jsp"/>
+        </action>
+         <action input="/TradeCount.jsp" name="TradeData" path="/tradeData" scope="request" type="admissions.report.TradeDataAction">
+             <forward name="success" path="/tradedetails.jsp"/>  
+          </action>
+        <action input="/exam_app_details_interface_rdd.jsp" name="exam_app_details_interface_rddForm" path="/exam_app_details_rdd" scope="session" type="Exams.exam_app_details_interface_rddAction">
+             <forward name="success" path="/exam_app_details_success.jsp"/>
+            <forward name="update_success" path="/exam_app_details_updatesuccess.jsp"/>
+            <forward name="exists" path="/exam_app_details_exists.jsp"/>
+            <forward name="Data_error" path="/exam_app_details_interface.jsp"/>
+        </action>
+        <action input="/schedule_entry_interface." name="schedule_entry_interfaceForm" path="/schedule_entry_int" scope="request" type="callleter.schedule_entry_interfaceAction">
+            <forward name="success" path="/admission.jsp"/>
+        </action>
+        
+         <action input="/DeleteAdmission_interface.jsp" name="DeleteAdmission_interfaceForm" path="/delete_admission" scope="request" type="com.nic.Delete.DeleteAdmission_interfaceAction">
+            <forward name="adm_num_wrong" path="/DeleteAdmission_interface.jsp"/>
+            <forward name="success" path="/confirm_delete_admission.jsp"/>
+            <!--<forward name="deletion_success" path="/deletion_success_admission.jsp"/>-->
+         </action>
+         
+          <action input="/confirm_delete_admission.jsp" name="DeleteAdmission_interfaceForm" path="/confirm_delete_admission" scope="request" type="com.nic.Delete.ConfirmDelete">
+            <forward name="success" path="/deletion_success_admission.jsp"/>
+         </action>
+
+		   <action input="/apprintice_exam_app_details_interface.jsp" name="apprintice_exam_app_details_interfaceForm" path="/app_app_entry" scope="request" type="Exams.apprintice_exam_app_details_interfaceAction">
+              <forward name="success" path="/App_adm_success.jsp"/>
+              <forward name="error_final" path="/apprintice_exam_app_details_interface.jsp"/>
+          </action>
+          <action input="/manageseats_interface_already_fill_fromadm.jsp" name="manageseats_interface_already_fill_fromadmForm" path="/update_seats_stfillvac" scope="session" type="Master.Trade.manageseats_interface_already_fill_fromadmAction">
+              <forward name="success" path="/trade.do"/>
+            <forward name="lengthfail" path="/length_fail.jsp"/>
+        </action>
+        <action path="/manage_seats_correction"  type="Master.Trade.manage_seats_correctionAction">
+        <forward name="success" path="/manageseats_interface_already_fill_fromadm.jsp"/>
+        </action>
+        <action path="/rr" type="admissions.report.TradeDataAction"/>
+
+		<action input="/SSCdataShow" name="sscdsata_applicationForm" path="/sscdsata_application" scope="request" type="applicationForm.sscdsata_applicationAction">
+                       <forward name="success" path="/AppRegSuccessThroughSccData.jsp"/>
+                   </action>
+ <action input="/SSCdataShow_ws.jsp" name="sscdsata_application_wsForm" path="/sscdsata_application_ws" scope="session" type="applicationForm.sscdsata_application_wsAction">
+             <forward name="success" path="/AppRegSuccessThroughSccData.jsp"/>
+         </action>
+   <action path="/Welcome" forward="/BifCtion.jsp"/>
+        
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

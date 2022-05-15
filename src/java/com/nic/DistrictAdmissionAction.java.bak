@@ -1,0 +1,289 @@
+
+package com.nic;
+
+import DBC.DBConnection;
+import DBC.RoleBasedOperations;
+import DBC.generic;
+import beans.MyUtil;
+import com.nic.CheckedAdmissionDetails;
+import com.nic.ItiAdmissionForm;
+import com.nic.ItiAdmissionProcessForm;
+import com.nic.RegistrationDao;
+import com.nic.TradeForm;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.upload.FormFile;
+
+public class DistrictAdmissionAction
+extends Action {
+    private static RegistrationDao registrationDao = new RegistrationDao();
+    private TradeForm tradeForm;
+    private ItiAdmissionForm itiAdmissionForm;
+    private ItiAdmissionForm itiAdmissionForm2;
+    private static String adm_num;
+
+    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        this.itiAdmissionForm = (ItiAdmissionForm)form;
+        String message = null;
+        HttpSession httpSession = request.getSession();
+        String dist_code = "" + httpSession.getAttribute("ins_code");
+        int adm_regid = (Integer)httpSession.getAttribute("adm_regid");
+        String adm_merit_number = (String)httpSession.getAttribute("adm_merit_number");
+        String adm_gpa = (String)httpSession.getAttribute("adm_gpa");
+        this.itiAdmissionForm2 = registrationDao.getApplicationDetails(adm_regid, request);
+        this.itiAdmissionForm2.setMeritNumber(adm_merit_number);
+        message = "reg id is " + adm_regid + " adm_merit_number " + adm_merit_number;
+        String[] tradeCode_check = this.itiAdmissionForm.getTrade_code().split("\\+");
+        message = "<br>" + message + "<br><br>" + this.itiAdmissionForm.getTrade_code() + "<br><br>" + tradeCode_check[0] + "<br><br>" + tradeCode_check[1] + "<br><br>" + tradeCode_check[2];
+        this.itiAdmissionForm2.setIti_name(tradeCode_check[0]);
+        this.itiAdmissionForm2.setIti_code(tradeCode_check[1]);
+        this.itiAdmissionForm2.setTrade_code(tradeCode_check[2]);
+        this.itiAdmissionForm.setIti_name(tradeCode_check[0]);
+        this.itiAdmissionForm.setIti_code(tradeCode_check[1]);
+        this.itiAdmissionForm.setTrade_code(tradeCode_check[2]);
+        this.itiAdmissionForm2.setGpt(adm_gpa);
+        String check = tradeCode_check[3];
+        this.itiAdmissionForm = this.itiAdmissionForm2;
+        String gpt = registrationDao.getGpt(adm_regid, request);
+        this.itiAdmissionForm.setGpt(gpt);
+        if (check.equals("1")) {
+            this.itiAdmissionForm.setRes_category("OC");
+        } else if (check.equals("2")) {
+            this.itiAdmissionForm.setRes_category("OC-W");
+        } else if (check.equals("3")) {
+            this.itiAdmissionForm.setRes_category(this.itiAdmissionForm.getCast());
+        } else if (check.equals("4")) {
+            String category_code = null;
+            category_code = this.itiAdmissionForm.getCast().contains("-") ? this.itiAdmissionForm.getCast() + "W" : this.itiAdmissionForm.getCast() + "-W";
+            this.itiAdmissionForm.setRes_category(category_code);
+        } else if (check.equals("5")) {
+            this.itiAdmissionForm.setRes_category("PH");
+        } else if (check.equals("6")) {
+            this.itiAdmissionForm.setRes_category("PH-W");
+        } else if (check.equals("7")) {
+            this.itiAdmissionForm.setRes_category("EX-S");
+        } else if (check.equals("8")) {
+            this.itiAdmissionForm.setRes_category("EX-SW");
+        }
+        this.tradeForm = registrationDao.getTradeDetails(this.itiAdmissionForm.getTrade_code(), request);
+        this.itiAdmissionForm.setTrade_short(this.tradeForm.getTrade_short());
+        this.itiAdmissionForm.setTrade_name(this.tradeForm.getTrade_name());
+        java.util.Date date = new java.util.Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat simpleDateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
+        String display_date = simpleDateFormat.format(date);
+        String original_date = simpleDateFormat1.format(date);
+        String display_dobD = simpleDateFormat.format(Date.valueOf(this.itiAdmissionForm.getDob()));
+        this.itiAdmissionForm.setAcad_year(original_date.substring(0, 4));
+        this.itiAdmissionForm.setCurrentDate(Date.valueOf(original_date));
+        request.setAttribute("display_date", (Object)display_date);
+        request.setAttribute("display_dobD", (Object)display_dobD);
+        CheckedAdmissionDetails checkedAdmissionDetails = registrationDao.checkAdmited_or_Not(this.itiAdmissionForm.getRegid(), request);
+        if (checkedAdmissionDetails == null) {
+            RegistrationDao registrationDao = new RegistrationDao();
+            int count = registrationDao.getAdm_numCount(this.itiAdmissionForm, request);
+            String year_of_admission = RoleBasedOperations.Current_AcademicYear((HttpServletRequest)request);
+            message = message + " AND ITI CODE IS " + this.itiAdmissionForm.getIti_code();
+            if (++count == 0) {
+                adm_num = this.itiAdmissionForm.getIti_code() + this.itiAdmissionForm.getTrade_short() + year_of_admission.substring(2) + "001";
+                this.itiAdmissionForm.setAdm_num(adm_num);
+            } else if (count <= 9) {
+                adm_num = this.itiAdmissionForm.getIti_code() + this.itiAdmissionForm.getTrade_short() + year_of_admission.substring(2) + "00" + count;
+                this.itiAdmissionForm.setAdm_num(adm_num);
+            } else if (count <= 99) {
+                adm_num = this.itiAdmissionForm.getIti_code() + this.itiAdmissionForm.getTrade_short() + year_of_admission.substring(2) + "0" + count;
+                this.itiAdmissionForm.setAdm_num(adm_num);
+            } else if (count <= 999) {
+                adm_num = this.itiAdmissionForm.getIti_code() + this.itiAdmissionForm.getTrade_short() + year_of_admission.substring(2) + count;
+                this.itiAdmissionForm.setAdm_num(adm_num);
+            }
+            message = message + "Generated Admission Number is :: " + adm_num + " and ITI Code is " + this.itiAdmissionForm.getIti_code() + " and District Code is " + dist_code;
+            httpSession.setAttribute("message", (Object)message);
+            if (!this.itiAdmissionForm.getIti_code().substring(0, 2).equalsIgnoreCase(dist_code)) {
+                return mapping.findForward("itiAdmissionFailed");
+            }
+            Connection connection = DBConnection.getConnection((HttpServletRequest)request);
+            HttpSession session = request.getSession(true);
+            String statecode = "" + session.getAttribute("statecode");
+            String trade_code = MyUtil.getOptionValue((String)"ititrade_master", (String)"trade_short", (String)"trade_code", (String)this.itiAdmissionForm.getTrade_short(), (Connection)connection);
+            String dget_tradecode = MyUtil.getOptionValue((String)"dget_trademaster", (String)"trade_code", (String)"dget_tradecode", (String)trade_code, (Connection)connection);
+            String noofsems = MyUtil.getOptionValue((String)"dget_trademaster", (String)"trade_code", (String)"noofsem", (String)trade_code, (Connection)connection);
+            String year_adm = year_of_admission.substring(2, 4);
+            String sql111 = "select max(substring(htno,11,4)) from admissions.iti_admissions  where dist_code='" + dist_code + "' and sem_nonsem='SEM' and  dgettrade_code='" + dget_tradecode + "' and year_of_admission='" + year_of_admission + "' ";
+            Statement stmt = connection.createStatement();
+            ResultSet rsset = stmt.executeQuery(sql111);
+            String slno = "0";
+            int k = 0;
+            if (rsset.next()) {
+                slno = rsset.getString(1);
+            }
+            if (slno != null) {
+                k = Integer.parseInt(slno);
+            }
+            slno = ++k < 10 ? "000" + k : (k < 100 && k >= 10 ? "00" + k : (k < 1000 && k >= 100 ? "0" + k : "" + k));
+            String htno = statecode + dget_tradecode + noofsems + year_adm + dist_code + slno;
+            try {
+                stmt.close();
+                rsset.close();
+            }
+            catch (Exception ex) {
+                stmt.close();
+                rsset.close();
+            }
+            request.setAttribute("adm_num", (Object)adm_num);
+            request.setAttribute("itiAdmissionForm", (Object)this.itiAdmissionForm);
+            int checkVacencies = registrationDao.checkForVacencies(this.itiAdmissionForm.getIti_code(), Integer.parseInt(this.itiAdmissionForm.getTrade_code()), this.itiAdmissionForm.getRes_category(), request);
+            int xyz = 500;
+            if (checkVacencies > 0) {
+                ItiAdmissionForm fm;
+                block48 : {
+                    int trno = generic.logTrace((String)((String)request.getSession().getAttribute("userName")), (String)"iti_admissions", (String)"Insert", (HttpServletRequest)request);
+                    fm = (ItiAdmissionForm)form;
+                    String idmarks1 = fm.getIdmarks1();
+                    String idmarks2 = fm.getIdmarks2();
+                    String ssc_regno = fm.getSsc_regno();
+                    String ssc_board = fm.getSsc_board();
+                    String ssc_year = fm.getSsc_year();
+                    String ssc_month = fm.getSsc_month();
+                    String type_admission = fm.getType_admission();
+                    String sem_nonsem = "";
+                    sem_nonsem = type_admission.trim().equalsIgnoreCase("N") ? "SEM" : "NONSEM";
+                    PreparedStatement preparedStatementInsert = null;
+                    Statement preparedStatementUpdate = null;
+                    String admnum = this.itiAdmissionForm.getAdm_num();
+                    String fromd_training = RoleBasedOperations.getDurationFromPeriod((String)admnum);
+                    String tod_training = RoleBasedOperations.getDurationToPeriod((String)admnum, (HttpServletRequest)request);
+                    connection.setAutoCommit(false);
+                    String year = MyUtil.getOptionValue((String)"iti_params", (String)"code", (String)"value", (String)"7", (Connection)connection);
+                    String phase = MyUtil.getOptionValue((String)"admissions.admission_phase", (String)"year", (String)"phase", (String)year, (Connection)connection);
+                    String caste = MyUtil.getOptionValue((String)"application", (String)"regid", (String)"caste", (String)("" + this.itiAdmissionForm.getRegid()), (Connection)connection);
+                    String exser = MyUtil.getOptionValue((String)"application", (String)"regid", (String)"caste", (String)("" + this.itiAdmissionForm.getRegid()), (Connection)connection);
+                    String SqlInsert = "insert into admissions.iti_admissions (regid,name,fname,mname,addr,phno,adarno,gender,caste,ssc_passed,inter_passed,inter_marks,local,pincode,dob,phc,exservice,iti_code,trade_code,res_category,adm_num,year_of_admission,trno,dist_code,mode_adm,fromd_training,tod_training,idmarks1,idmarks2,ssc_regno,ssc_board,ssc_year,ssc_month,date_of_admission,type_admission,phase,htno,sem_nonsem,dgettrade_code) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,'" + MyUtil.ChDate((String)fromd_training) + "','" + MyUtil.ChDate((String)tod_training) + "','" + idmarks1 + "','" + idmarks2 + "','" + ssc_regno + "','" + ssc_board + "','" + ssc_year + "','" + ssc_month + "','" + original_date + "','" + type_admission + "','" + phase + "','" + htno + "','" + sem_nonsem + "','" + dget_tradecode + "')";
+                    String SqlUpdate = "update  iti_seatmatrix set strength_fill=strength_fill || hstore(Array['" + this.itiAdmissionForm.getRes_category() + "'],Array[((strength_fill->'" + this.itiAdmissionForm.getRes_category() + "')::integer+1)::text]),strength_vacant=strength_vacant || hstore(Array['" + this.itiAdmissionForm.getRes_category() + "'],Array[((strength_vacant->'" + this.itiAdmissionForm.getRes_category() + "')::integer-1)::text]) where iti_code=? and trade_code=? ";
+                    int updateSeatmatrix = 0;
+                    try {
+                        preparedStatementInsert = connection.prepareStatement(SqlInsert);
+                        String mode_adm = "Convenor of the Sellection comitte";
+                        preparedStatementInsert.setInt(1, this.itiAdmissionForm.getRegid());
+                        preparedStatementInsert.setString(2, this.itiAdmissionForm.getName());
+                        preparedStatementInsert.setString(3, this.itiAdmissionForm.getFatherName());
+                        preparedStatementInsert.setString(4, this.itiAdmissionForm.getMname());
+                        preparedStatementInsert.setString(5, this.itiAdmissionForm.getAddress());
+                        if (this.itiAdmissionForm.getPhoneNumber() != null && this.itiAdmissionForm.getPhoneNumber() != "") {
+                            preparedStatementInsert.setLong(6, Long.parseLong(this.itiAdmissionForm.getPhoneNumber()));
+                        } else {
+                            preparedStatementInsert.setLong(6, 0);
+                        }
+                        preparedStatementInsert.setString(7, this.itiAdmissionForm.getAdarNo());
+                        preparedStatementInsert.setString(8, this.itiAdmissionForm.getSex());
+                        preparedStatementInsert.setString(9, caste);
+                        preparedStatementInsert.setBoolean(10, this.itiAdmissionForm.getSsc_passed());
+                        preparedStatementInsert.setBoolean(11, this.itiAdmissionForm.getInterPassed());
+                        preparedStatementInsert.setInt(12, this.itiAdmissionForm.getInter_marks());
+                        preparedStatementInsert.setString(13, this.itiAdmissionForm.getLocal());
+                        preparedStatementInsert.setInt(14, this.itiAdmissionForm.getPin_code());
+                        Date date1 = Date.valueOf(this.itiAdmissionForm.getDob());
+                        preparedStatementInsert.setDate(15, date1);
+                        if (this.itiAdmissionForm.getPhc().equals("yes")) {
+                            preparedStatementInsert.setBoolean(16, true);
+                        } else {
+                            preparedStatementInsert.setBoolean(16, false);
+                        }
+                        if (this.itiAdmissionForm.getExservice().equals("yes")) {
+                            preparedStatementInsert.setBoolean(17, true);
+                        } else {
+                            preparedStatementInsert.setBoolean(17, false);
+                        }
+                        preparedStatementInsert.setString(18, this.itiAdmissionForm.getIti_code());
+                        preparedStatementInsert.setInt(19, Integer.parseInt(this.itiAdmissionForm.getTrade_code()));
+                        preparedStatementInsert.setString(20, this.itiAdmissionForm.getRes_category());
+                        preparedStatementInsert.setString(21, this.itiAdmissionForm.getAdm_num());
+                        preparedStatementInsert.setString(22, year_of_admission);
+                        preparedStatementInsert.setInt(23, trno);
+                        preparedStatementInsert.setString(24, dist_code);
+                        preparedStatementInsert.setString(25, mode_adm);
+                        int i = preparedStatementInsert.executeUpdate();
+                        preparedStatementUpdate = connection.prepareStatement(SqlUpdate);
+                        preparedStatementUpdate.setString(1, this.itiAdmissionForm.getIti_code());
+                        preparedStatementUpdate.setInt(2, Integer.parseInt(this.itiAdmissionForm.getTrade_code()));
+                        updateSeatmatrix = preparedStatementUpdate.executeUpdate();
+                        connection.commit();
+                        preparedStatementInsert.close();
+                        preparedStatementUpdate.close();
+                        connection.close();
+                    }
+                    catch (Exception e) {
+                        xyz = 0;
+                        connection.rollback();
+                        if (preparedStatementInsert != null) {
+                            preparedStatementInsert.close();
+                        }
+                        if (preparedStatementUpdate != null) {
+                            preparedStatementUpdate.close();
+                        }
+                        if (connection == null) break block48;
+                        connection.close();
+                    }
+                }
+                String yearofadm = RoleBasedOperations.Current_AcademicYear((HttpServletRequest)request);
+                try {
+                    if (fm.getPic().getFileSize() > 0) {
+                        DBConnection.insertPhoto_With_MultipleFields((String)"exams.img_cand_photos_exams", (String)"image", (FormFile)fm.getPic(), (String)("adm_num,year_of_admission$'" + adm_num + "','" + yearofadm + "'"), (HttpServletRequest)request);
+                    } else {
+                        String qry = "insert into exams.img_cand_photos_exams(adm_num,image,year_of_admission) select '" + adm_num + "',pic,'" + yearofadm + "' from img_cand_photos where regid='" + adm_regid + "'";
+                        Statement st = connection.createStatement();
+                        try {
+                            int p = st.executeUpdate(qry);
+                            st.close();
+                            connection.close();
+                        }
+                        catch (Exception ex) {
+                            st.close();
+                            connection.close();
+                        }
+                    }
+                }
+                catch (NullPointerException qry) {
+                    // empty catch block
+                }
+                String tab = "conviner_login";
+                String code = "dist_code";
+                String name = "dist_name";
+                String val = (String)request.getSession().getAttribute("ins_code");
+                String distname = null;
+                if (xyz == 500) {
+                    distname = MyUtil.getOptionValue((String)tab, (String)code, (String)name, (String)val, (HttpServletRequest)request);
+                    request.setAttribute("distname", (Object)distname);
+                    return mapping.findForward("districtAdmissionSuccess");
+                }
+                return mapping.findForward("itiAdmissionFailed");
+            }
+        } else {
+            ArrayList councilMerits = null;
+            ItiAdmissionProcessForm itiAdmissionProcessForm = new ItiAdmissionProcessForm();
+            councilMerits = registrationDao.getCouncilMerits("dist_code", this.itiAdmissionForm.getCurrentDate(), (String)httpSession.getAttribute("ins_code"), request);
+            if (councilMerits == null) {
+                return mapping.findForward("DistrictAdmissionEntryFailed");
+            }
+            itiAdmissionProcessForm.setMerit_from((Integer)councilMerits.get(0));
+            itiAdmissionProcessForm.setMerit_to((Integer)councilMerits.get(1));
+            itiAdmissionProcessForm.setCurrentDate(this.itiAdmissionForm.getCurrentDate());
+            request.setAttribute("itiAdmissionProcessForm", (Object)itiAdmissionProcessForm);
+            request.setAttribute("checkedAdmissionDetails", (Object)checkedAdmissionDetails);
+            return mapping.findForward("districtAdmissionAlreadyFound");
+        }
+        return null;
+    }
+}
